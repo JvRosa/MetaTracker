@@ -38,7 +38,7 @@ Authentication: <SUPABSE_JWT_TOKEN>
 ```ts
 {} as Partial<Card>
 ```
-## POST /trocar_card_de_cxategoria/:cardId/:newCardId
+## POST /trocar_card_de_categoria/:cardId/:newCategoriaId
 ### header:
 Authentication: <SUPABSE_JWT_TOKEN>
 ### body: 
