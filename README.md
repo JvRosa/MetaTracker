@@ -2,13 +2,55 @@
 ![image](https://github.com/JvRosa/MetaTracker/assets/110125524/58855daf-b799-4a86-9aa6-6db38f2e7260)
 
 # Rotas
-## /criar_categoria
-## /atualizar_categoria
-## /deletar_categoria
+## POST /criar_categoria
+### header:
+Authentication: <SUPABSE_JWT_TOKEN>
+### body: 
+```ts
+{} as Categoria
+```
+## PUT /atualizar_categoria
+### header:
+Authentication: <SUPABSE_JWT_TOKEN>
+### body: 
+```ts
+{} as Partial<Categoria>
+```
+## DELETE /deletar_categoria/:categoriaId
+### header:
+Authentication: <SUPABSE_JWT_TOKEN>
+### body: 
+```ts
+{}
+```
 
-## /criar_card
-## /atualizar_card
-## /trocar_card_de_cxategoria
-## /deletar_card
+## POST /criar_card
+### header:
+Authentication: <SUPABSE_JWT_TOKEN>
+### body: 
+```ts
+{} as Card
+```
+## PUT /atualizar_card/:cardId
+### header:
+Authentication: <SUPABSE_JWT_TOKEN>
+### body: 
+```ts
+{} as Partial<Card>
+```
+## POST /trocar_card_de_cxategoria/:cardId/:newCardId
+### header:
+Authentication: <SUPABSE_JWT_TOKEN>
+### body: 
+```ts
+{}
+```
+## DELETE /deletar_card/:cardId
+### header:
+Authentication: <SUPABSE_JWT_TOKEN>
+### body: 
+```ts
+{}
+```
 
 
