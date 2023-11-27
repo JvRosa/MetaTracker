@@ -1,0 +1,57 @@
+@media (min-width: 500px){
+    .conteudoPrincipal{
+        width: 70%;
+    }
+    .visualizarOuOcultarSenha{
+        translate: 22vw -26px;
+    }
+}
+
+@media (min-width: 700px){
+    .conteudoPrincipal{
+        width: 60%;
+    }
+    .visualizarOuOcultarSenha{
+        translate: 19vw -26px;
+    }
+}
+@media (min-width: 900px){
+    .conteudoPrincipal{
+        width: 40%;
+    }
+    .visualizarOuOcultarSenha{
+        translate: 12vw -26px;
+    }
+}
+@media (min-width: 1200px){
+    .conteudoPrincipal{
+        width: 30%;
+    }
+    .visualizarOuOcultarSenha{
+        translate: 9vw -26px;
+    }
+}
+@media (min-width: 2000px){
+    .conteudoPrincipal{
+        width: 20%;
+    }
+    .nome_titulo{
+        font-size: 40px;
+    }
+    .inputs{
+        height: 45px;
+        font-size: 25px;
+    }
+    .campoIconeTextoLabel{
+        font-size: 30px;
+    }
+    .BotaoRealizarLogin{
+        font-size: 25px;
+    }
+    .botaoMudarCadastroLogin{
+        font-size: 25px;
+    }
+    .visualizarOuOcultarSenha{
+        translate: 6vw -33px;
+    }
+}

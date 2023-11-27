@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Meta Tracker</title>
+
+    <link rel="shortcut icon" type="image/x-icon" href="Login/Imagens/CheckIcon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.7/css/all.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Saira+Extra+Condensed:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="Login/Estilos/estiloPrincipal.css">
+    <link rel="stylesheet" href="Login/Estilos/Responsividade.css">
+</head>
+<body>
+    <main class="conteudoPrincipal" id="id_conteudoPrincipal">
+        <div class="TelaLogin" id="id_telaLogin">
+            <h2 class="nome_titulo">Meta Tracker <i class="fas fa-solid fa-square-check" style="color: rgb(32, 146, 0);"></i></h2>
+                <form class="formularioLogin">
+                    <div class="campoIconeTextoLabel">
+                        <i class="fas fa-solid fa-user"></i>
+                        <label for="UserID">Usuário</label>
+                    </div>
+                    <input name="UserID" class="inputs" id="id_UsuarioLogin" type="text">
+                    <div class="campoIconeTextoLabel">
+                        <i class="fas fa-solid fa-key"></i>
+                        <label for="Senha">Senha</label>
+                    </div>
+                    <input id="id_SenhaLogin" name="Senha" class="inputs" type="password">
+                    <i class="fas fa-regular fa-eye visualizarOuOcultarSenha" id="id_visualizarOcultarSenha"></i>
+                </form>
+                <button type="submit" class="BotaoRealizarLogin" id="id_botaoLogin">Entrar</button>
+        </div>
+        <div class="TelaCadastro" id="id_telaCadastro">
+            <h2 class="nome_titulo">Realizar cadastro</h2>
+                <form class="formularioLogin" action="">
+                    <div class="campoIconeTextoLabel">
+                        <i class="fas fa-solid fa-user"></i>
+                        <label for="UserID">ID Usuário</label>
+                    </div>
+                    <input id="id_UsuarioCadastro" name="UserID" class="inputs" type="text">
+                    <div class="campoIconeTextoLabel">
+                        <i class="fas fa-regular fa-envelope"></i>
+                        <label for="emailCadastro">E-mail</label>
+                    </div>
+                    <input type="email" class="inputs" name="emailCadastro" id="id_emailCadastro">
+                    <div class="campoIconeTextoLabel">
+                        <i class="fas fa-solid fa-key"></i>
+                        <label for="Senha">Senha</label>
+                    </div>
+                    <input id="id_SenhaCadastro" name="Senha" class="inputs" type="password">
+                    <i class="fas fa-regular fa-eye visualizarOuOcultarSenha" id="id_visualizarOcultarSenhaCadastro"></i>
+                    </form>
+                    <button type="submit" id="id_BotaoCadastro" class="BotaoRealizarLogin">Cadastrar</button>
+        </div>
+    </main>
+    
+    <footer class="areaMudarDeloginParaCadastro">
+        <button name="MudarDeCadastroParaLogin" class="botaoMudarCadastroLogin" id="id_BotaoCadastroLogin">Realizar cadastro</button>
+    </footer>
+    <script src="Login/Javascripts/JSLoginCadastro.js"></script>
+</body>
+</html>

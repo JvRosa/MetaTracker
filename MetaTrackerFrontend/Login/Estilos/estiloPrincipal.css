@@ -1,0 +1,141 @@
+:root{
+    --CorFundoBody: #D2E0FB;
+    --CorSombraConteudo: #799de5;
+    --CorFundoConteudo: #83a6eb;
+    --CorFundobotoes: #2d5cc0;
+    --CorTextoConteudo: #061941;
+    --CorHoverInputs: #b5ceff;
+}
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-family: 'Saira Extra Condensed', sans-serif;
+    background-color: var(--CorFundoBody);
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    letter-spacing: 2px;
+}
+
+.conteudoPrincipal{
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 36px;
+    padding: 50px 0;
+    margin: 0 auto;
+    background-color: var(--CorFundoConteudo);
+    border-radius: 30px 5px;
+    box-shadow: -1px 1px 2px var(--CorSombraConteudo);
+}
+.TelaLogin{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 36px;
+}
+.TelaCadastro{
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 36px;
+    display: none;
+}
+.nome_titulo{
+    color: var(--CorTextoConteudo);
+}
+.formularioLogin{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.campoIconeTextoLabel{
+    margin-bottom: 2px;
+    margin-top: 10px;
+    text-align: center;
+    font-weight: bold;
+    color: var(--CorTextoConteudo);
+}
+.inputs{
+    width: 70%;
+    height: 32px;
+    border: none;
+    border-bottom: 2px solid #0a245c;
+    background-color: var(--CorFundoBody);
+    border-radius: 8px;
+    color: var(--CorTextoConteudo);
+    font-size: 15px;
+    padding: 0 5px;
+}
+.inputs:focus{
+    outline: none;
+}
+.inputs:hover{
+    background-color: var(--CorHoverInputs);
+}
+.visualizarOuOcultarSenha{
+    position: relative;
+    translate: 28vw -26px;
+}
+.BotaoRealizarLogin{
+    padding: 8px 12px;
+    letter-spacing: 1px;
+    font-weight: bold;
+    font-size: 18px;
+    border-radius: 5px 1px;
+    border: none;
+    box-shadow: -1px 1px 2px var(--CorSombraConteudo);
+    background-color: var(--CorFundobotoes);
+    color: var(--CorFundoBody);
+}
+.BotaoRealizarLogin:hover{
+    background-color: var(--CorFundoBody);
+    color: var(--CorTextoConteudo);
+}
+
+.botaoMudarCadastroLogin{
+    padding: 8px 12px;
+    margin-top: 20px;
+    letter-spacing: 1px;
+    font-weight: bold;
+    font-size: 18px;
+    border-radius: 5px 1px;
+    border: none;
+    box-shadow: -1px 1px 2px var(--CorSombraConteudo);
+    background-color: var(--CorFundobotoes);
+    color: var(--CorFundoBody);
+}
+.botaoMudarCadastroLogin:hover{
+    background-color: var(--CorSombraConteudo);
+    color: var(--CorTextoConteudo);
+}
+
+@keyframes DispararDesaparecer {
+    0%{
+        opacity: 100%;
+    }
+    100%{
+        opacity: 0%;
+    }
+}
+@keyframes DispararAparecer {
+    0%{
+        opacity: 0%;
+    }
+    100%{
+        opacity: 100%;
+    }
+}
