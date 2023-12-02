@@ -9,7 +9,7 @@ Authentication: <SUPABSE_JWT_TOKEN>
 ```ts
 {} as Categoria
 ```
-## PUT /atualizar_categoria
+## PUT /atualizar_categoria/:categoriaId
 ### header:
 Authentication: <SUPABSE_JWT_TOKEN>
 ### body: 
