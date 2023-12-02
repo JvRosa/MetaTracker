@@ -2,6 +2,16 @@
 ![image](https://github.com/JvRosa/MetaTracker/assets/110125524/58855daf-b799-4a86-9aa6-6db38f2e7260)
 
 # Rotas
+## POST /register
+### body: 
+```ts
+{} as User
+```
+## POST /login
+### body: 
+```ts
+{} as User
+```
 ## POST /criar_categoria
 ### header:
 Authentication: <SUPABSE_JWT_TOKEN>
