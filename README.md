@@ -12,21 +12,21 @@
 ```ts
 {} as User
 ```
-## POST /criar_categoria
+## POST /categorias
 ### header:
 Authentication: <SUPABSE_JWT_TOKEN>
 ### body: 
 ```ts
 {} as Categoria
 ```
-## PUT /atualizar_categoria/:categoriaId
+## PUT /categorias/:categoriaId
 ### header:
 Authentication: <SUPABSE_JWT_TOKEN>
 ### body: 
 ```ts
 {} as Partial<Categoria>
 ```
-## DELETE /deletar_categoria/:categoriaId
+## DELETE /categorias/:categoriaId
 ### header:
 Authentication: <SUPABSE_JWT_TOKEN>
 ### body: 
@@ -34,28 +34,28 @@ Authentication: <SUPABSE_JWT_TOKEN>
 {}
 ```
 
-## POST /criar_card
+## POST /cards
 ### header:
 Authentication: <SUPABSE_JWT_TOKEN>
 ### body: 
 ```ts
 {} as Card
 ```
-## PUT /atualizar_card/:cardId
+## PUT /cards/:cardId
 ### header:
 Authentication: <SUPABSE_JWT_TOKEN>
 ### body: 
 ```ts
 {} as Partial<Card>
 ```
-## POST /trocar_card_de_categoria/:cardId/:newCategoriaId
+## PUT /cards/:cardId/:newCategoriaId
 ### header:
 Authentication: <SUPABSE_JWT_TOKEN>
 ### body: 
 ```ts
 {}
 ```
-## DELETE /deletar_card/:cardId
+## DELETE /cards/:cardId
 ### header:
 Authentication: <SUPABSE_JWT_TOKEN>
 ### body: 
