@@ -19,8 +19,8 @@ Realizar cadastro de um novo usuário.
 ### body: 
 ```ts
 {
-"email": 'email@example.com',
-"senha": 'password'
+"email": "email@example.com",
+"senha": "password"
 }
 ```
 ## POST /login
@@ -28,8 +28,8 @@ Realizar login.
 ### body: 
 ```ts
 {
-"email": 'email@example.com',
-"senha": 'password'
+"email": "email@example.com",
+"senha": "password"
 }
 ```
 ## POST /categorias
@@ -39,8 +39,8 @@ Authorization: <SUPABSE_JWT_TOKEN>
 ### body: 
 ```ts
 {
-"nome": 'Estudos',
-"cor": 'vermelho'
+"nome": "Estudos",
+"cor": "vermelho"
 }
 ```
 ## GET /categorias
@@ -55,8 +55,8 @@ Authorization: <SUPABSE_JWT_TOKEN>
 ### body: 
 ```ts
 {
-"nome": 'Novo nome',
-"cor": 'Nova cor'
+"nome": "Novo nome",
+"cor": "Nova cor"
 }
 ```
 ## DELETE /categorias/:categoriaId
@@ -71,9 +71,9 @@ Authorization: <SUPABSE_JWT_TOKEN>
 ### body: 
 ```ts
 {
-"texto": 'Fazer atividade x',
-"categoria": '1',
-"status": 'Em andamento'
+"texto": "Fazer atividade x",
+"categoria": "1",
+"status": "Em andamento"
 }
 ```
 ## GET /cards
@@ -88,10 +88,10 @@ Authorization: <SUPABSE_JWT_TOKEN>
 ### body: 
 ```ts
 {
-"texto": 'Fazer atividade x',
-"categoria": '1',
-"status": 'Concluída',
-"data_terminou": '05/12/2023'
+"texto": "Fazer atividade x",
+"categoria": "1",
+"status": "Concluída",
+"data_terminou": "05/12/2023"
 }
 ```
 ## PUT /cards/:cardId/:newCategoriaId
