@@ -14,7 +14,8 @@ Nosso sistema de agendamento de metas/objetivos é projetado para atender a uma 
 ![image](https://github.com/JvRosa/MetaTracker/assets/110125524/58855daf-b799-4a86-9aa6-6db38f2e7260)
 
 # Rotas
-## POST /register
+## POST /register 
+Realizar cadastro de um novo usuário.
 ### body: 
 ```ts
 {
@@ -23,6 +24,7 @@ Nosso sistema de agendamento de metas/objetivos é projetado para atender a uma 
 }
 ```
 ## POST /login
+Realizar login.
 ### body: 
 ```ts
 {
@@ -31,6 +33,7 @@ Nosso sistema de agendamento de metas/objetivos é projetado para atender a uma 
 }
 ```
 ## POST /categorias
+Criar uma nova categoria.
 ### header:
 Authentication: <SUPABSE_JWT_TOKEN>
 ### body: 
@@ -41,10 +44,12 @@ Authentication: <SUPABSE_JWT_TOKEN>
 }
 ```
 ## GET /categorias
+Listar as categorias de um usuário.
 ### header:
 Authentication: <SUPABSE_JWT_TOKEN>
 
 ## PUT /categorias/:categoriaId
+Atualizar os campos de uma categoria já existente.
 ### header:
 Authentication: <SUPABSE_JWT_TOKEN>
 ### body: 
@@ -55,10 +60,12 @@ Authentication: <SUPABSE_JWT_TOKEN>
 }
 ```
 ## DELETE /categorias/:categoriaId
+Excluir uma categoria existente.
 ### header:
 Authentication: <SUPABSE_JWT_TOKEN>
 
 ## POST /cards
+Criar uma nova meta.
 ### header:
 Authentication: <SUPABSE_JWT_TOKEN>
 ### body: 
@@ -70,10 +77,12 @@ Authentication: <SUPABSE_JWT_TOKEN>
 }
 ```
 ## GET /cards
+Listar as metas de um usuário.
 ### header:
 Authentication: <SUPABSE_JWT_TOKEN>
 
 ## PUT /cards/:cardId
+Atualizar uma meta existente, por exemplo o status para "Concluída".
 ### header:
 Authentication: <SUPABSE_JWT_TOKEN>
 ### body: 
@@ -85,10 +94,12 @@ Authentication: <SUPABSE_JWT_TOKEN>
 }
 ```
 ## PUT /cards/:cardId/:newCategoriaId
+Trocar a categoria de uma meta específica.
 ### header:
 Authentication: <SUPABSE_JWT_TOKEN>
   
 ## DELETE /cards/:cardId
+Excluir uma meta existente.
 ### header:
 Authentication: <SUPABSE_JWT_TOKEN>
 
