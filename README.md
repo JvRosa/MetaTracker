@@ -90,7 +90,8 @@ Authentication: <SUPABSE_JWT_TOKEN>
 {
 "texto": 'Fazer atividade x',
 "categoria": '1',
-"status": 'Concluída'
+"status": 'Concluída',
+"data_terminou": '05/12/2023'
 }
 ```
 ## PUT /cards/:cardId/:newCategoriaId
