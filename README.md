@@ -17,62 +17,80 @@ Nosso sistema de agendamento de metas/objetivos é projetado para atender a uma 
 ## POST /register
 ### body: 
 ```ts
-{} as User
+{
+"email": 'email@example.com',
+"senha": 'password'
+}
 ```
 ## POST /login
 ### body: 
 ```ts
-{} as User
+{
+"email": 'email@example.com',
+"senha": 'password'
+}
 ```
 ## POST /categorias
 ### header:
 Authentication: <SUPABSE_JWT_TOKEN>
 ### body: 
 ```ts
-{} as Categoria
+{
+"nome": 'Estudos',
+"cor": 'vermelho'
+}
 ```
+## GET /categorias
+### header:
+Authentication: <SUPABSE_JWT_TOKEN>
+
 ## PUT /categorias/:categoriaId
 ### header:
 Authentication: <SUPABSE_JWT_TOKEN>
 ### body: 
 ```ts
-{} as Partial<Categoria>
+{
+"nome": 'Novo nome',
+"cor": 'Nova cor'
+}
 ```
 ## DELETE /categorias/:categoriaId
 ### header:
 Authentication: <SUPABSE_JWT_TOKEN>
-### body: 
-```ts
-{}
-```
 
 ## POST /cards
 ### header:
 Authentication: <SUPABSE_JWT_TOKEN>
 ### body: 
 ```ts
-{} as Card
+{
+"texto": 'Fazer atividade x',
+"categoria": '1',
+"status": 'Em andamento'
+}
 ```
+## GET /cards
+### header:
+Authentication: <SUPABSE_JWT_TOKEN>
+
 ## PUT /cards/:cardId
 ### header:
 Authentication: <SUPABSE_JWT_TOKEN>
 ### body: 
 ```ts
-{} as Partial<Card>
+{
+"texto": 'Fazer atividade x',
+"categoria": '1',
+"status": 'Concluída'
+}
 ```
 ## PUT /cards/:cardId/:newCategoriaId
 ### header:
 Authentication: <SUPABSE_JWT_TOKEN>
-### body: 
-```ts
-{}
-```
+  
 ## DELETE /cards/:cardId
 ### header:
 Authentication: <SUPABSE_JWT_TOKEN>
-### body: 
-```ts
-{}
-```
+
 
 
