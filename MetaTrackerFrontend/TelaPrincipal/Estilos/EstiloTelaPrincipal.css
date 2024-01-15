@@ -1,0 +1,396 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+:root {
+    --CorFundoHeader: rgb(165, 197, 255);
+    --CorFundoBody: rgb(212, 227, 255);
+    --CorTextoBotaoSair: #a7b7db;
+    --CorFundoBotaoSair: #18387c;
+    --CorTextoEscuro: #18387c;
+    --CorFundoBotoes: #5c8fff;
+}
+
+body {
+    font-family: 'Saira Extra Condensed', sans-serif;
+    background-color: var(--CorFundoBody);
+    overflow-x: hidden;
+
+    scrollbar-width: thin; /* Largura da barra de rolagem no Firefox */
+
+    /* WebKit (Chrome, Safari, Opera) */
+    &::-webkit-scrollbar {
+        width: 6px; /* Largura da barra de rolagem no WebKit */
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: black; /* Cor da barra de rolagem no WebKit */
+        border-radius: 6px; /* Borda arredondada da barra de rolagem no WebKit */
+    }
+
+}
+
+.Cabecalho {
+    box-shadow: 1px 1px 4px rgb(89, 83, 143);
+    background-color: var(--CorFundoHeader);
+    justify-content: space-between;
+    color: var(--CorTextoEscuro);
+    align-items: center;
+    display: flex;
+    height: 50px;
+    z-index: 1;
+}
+
+.titulo{
+    justify-content: end;
+    align-items: center;
+    display: flex;
+    height: 100%;
+    width: 52%;
+    user-select: none;
+}
+
+.Sair {
+    justify-content: end;
+    align-items: center;
+    margin-right: 0;
+    display: flex;
+    height: 100%;
+    width: 48%;
+    right: 0;
+}
+
+.BotaoSair {
+    background-color: var(--CorFundoBotaoSair);
+    box-shadow: -1px 1px 3px rgb(0, 0, 88);
+    color: var(--CorTextoBotaoSair);
+    text-decoration: none;
+    align-items: center;
+    letter-spacing: 1px;
+    border-radius: 5px;
+    padding: 0px 15px;
+    margin-right: 2vw;
+    font-size: 1.5em;
+    display: flex;
+    height: 80%;
+}
+
+.Principal {
+    background-color: var(--CorFundoBody);
+    margin: 20px 0 0px 0;
+    overflow-x: scroll;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    cursor: grab;
+
+        /* WebKit (Chrome, Safari, Opera) */
+        &::-webkit-scrollbar {
+            width: 5px; /* Largura da barra de rolagem no WebKit */
+        }
+    
+        &::-webkit-scrollbar-thumb {
+            background-color: black; /* Cor da barra de rolagem no WebKit */
+            border-radius: 6px; /* Borda arredondada da barra de rolagem no WebKit */
+        }
+    
+        /* WebKit (Chrome, Safari, Opera) */
+        &::-webkit-scrollbar {
+            height: 6px; /* Altura da barra de rolagem no eixo X no WebKit */
+        }
+}
+
+.Categoria {
+    box-shadow: -2px 2px 4px #bbb;
+    background-color: #bbb;
+    border-radius: 10px;
+    font-weight: bold;
+    color: black;
+    min-width: 400px;
+    width: 400px;
+    margin: 20px;
+    height: 85%;
+    cursor: default;
+}
+
+.CabecalhoCartao {
+    background-image: linear-gradient(white, #bbb);
+    border-radius: 10px 10px 3px 3px;
+    padding: 0 10px;
+    height: 15%;
+    user-select: none;
+}
+
+.CabecalhoCartaoParteSuperior {
+    justify-content: space-between;
+    align-items: center;
+    display: flex;
+    width: 100%;
+    height: 50%;
+}
+
+.TituloCategoria {
+    letter-spacing: 1.5px;
+}
+
+.inputEditarTitulo{
+    font-family: 'Saira Extra Condensed', sans-serif;
+    border-bottom: 2px solid rgb(44, 44, 44);
+    background-color: transparent;
+    letter-spacing: 1.5px;
+    border-radius: 3px;
+    font-weight: bold;
+    font-size: 24px;
+    outline: none;
+    width: 50%;
+}
+
+.inputEditarMeta{
+    font-family: 'Saira Extra Condensed', sans-serif;
+    border-bottom: 2px solid rgb(44, 44, 44);
+    border-radius: 3px;
+    font-weight: bold;
+    font-size: 16px;
+    outline: none;
+}
+
+.inputCorDaCategoria{
+    background-color: transparent;
+    border-radius: 100%;
+    min-height: 30px;
+    cursor: pointer;
+    display: none;
+    padding: 0px;
+    height: 35px;
+    width: 30px;
+}
+
+.menuCategoria{
+    justify-content: end;
+    align-items: center;
+    display: flex;
+    width: 40%;
+    gap: 8px;
+}
+
+.excluirCategoria{
+    border: 1px solid black;
+    border-bottom: 2px solid black;
+    border-radius: 100%;
+    cursor: pointer;
+    display: none;
+    padding: 8px;
+}
+
+.excluirCategoria:hover, .editarTituloCartao:hover{
+    border: 1px solid black;
+}
+
+.inputCorDaCategoria::-webkit-color-swatch {
+    border-radius: 100%;
+    border: 1px solid black;
+    padding: 0;
+    margin: 0;
+}
+
+.editarTituloCartao{
+    border: 1px solid black;
+    border-bottom: 2px solid black;
+    border-radius: 100%;
+    cursor: pointer;
+    padding: 8px;
+}
+
+.CabecalhoCartaoParteInferior {
+    align-items: center;
+    font-weight: bold;
+    display: flex;
+    gap: 5px;
+}
+
+.AreaMetas {
+    flex-direction: column;
+    overflow-y: scroll;
+    display: flex;
+    height: 84%;
+    width: 100%;
+}
+
+.meta {
+    justify-content: space-between;
+    background-color: white;
+    border-radius: 4px 12px;
+    margin: 5px 10px;
+    display: flex;
+    padding: 10px;
+    border-bottom: 3px solid rgb(62, 62, 62);
+    user-select: none;
+}
+
+.meta:hover{
+    background-color: #ddd;
+}
+
+.AdicionarCategoria {
+    justify-content: center;
+    min-width: 330px;
+    padding-top: 20%;
+    cursor: pointer;
+    display: flex;
+}
+
+.adicionaCategoria {
+    background-color: rgb(135, 191, 255);
+    box-shadow: -1px 1px 3px #002863;
+    justify-content: center;
+    border-radius: 40px;
+    align-items: center;
+    color: #002863;
+    font-size: 30px;
+    display: flex;
+    height: 60px;
+    width: 60px;
+}
+
+.adicionaCategoria:hover {
+    background-color: #72aaff;
+}
+
+.checkboxEMeta {
+    align-items: center;
+    cursor: pointer;
+    display: flex;
+    gap: 12px;
+}
+
+.EditarEApagar {
+    align-items: center;
+    display: flex;
+    height: 100%;
+    gap: 12px;
+}
+
+.EditarEApagar i {
+    border-radius: 100%;
+    border: 1px solid black;
+    border-bottom: 2px solid black;
+    padding: 8px;
+    cursor: pointer;
+}
+
+.EditarEApagar i:hover{
+    border: 1px solid black;
+    background-color: #ddd;
+}
+
+.adicionarMeta {
+    background-color: white;
+    border: 1px solid black;
+    justify-content: center;
+    border-radius: 100%;
+    align-items: center;
+    align-self: center;
+    font-weight: bold;
+    min-height: 40px;
+    margin-top: 10px;
+    font-size: 25px;
+    min-width: 40px;
+    cursor: pointer;
+    display: flex;
+    height: 40px;
+    width: 40px;
+}
+
+.adicionarMeta:hover{
+    border: 1px solid black;
+    background-color: black;
+    color: white;
+}
+
+.checkbox-escondido {
+    position: absolute;
+    opacity: 0;
+}
+
+.checkbox-personalizado {
+    border: 2px solid black;
+    background-color: transparent;
+    justify-content: center;
+    display: inline-block;
+    align-items: center;
+    border-radius: 2px;
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    height: 15px;
+    width: 15px;
+}
+
+.checkbox-personalizado::after {
+    content: '\2713';
+    font-size: 15px;
+    color: #fff;
+    display: none;
+}
+
+.checkbox-escondido:checked+.checkbox-personalizado::after {
+    display: block;
+    color: black;
+}
+
+.AreaMetas {
+    scrollbar-width: thin; /* Largura da barra de rolagem no Firefox */
+
+    /* WebKit (Chrome, Safari, Opera) */
+    &::-webkit-scrollbar {
+        width: 4px; /* Largura da barra de rolagem no WebKit */
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: black; /* Cor da barra de rolagem no WebKit */
+        border-radius: 6px; /* Borda arredondada da barra de rolagem no WebKit */
+    }
+
+    &::-webkit-scrollbar-button {
+        display: none;
+    }
+}
+
+.popup {
+    display: none;
+    position: fixed;
+    top: 40%;
+    font-size: 25px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgb(232, 232, 232);
+    border-radius: 4px 15px;
+    box-shadow: 0 0 10px rgba(117, 117, 117, 0.5);
+    z-index: 2;
+}
+
+.botoesConfirmarExclusao{
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 3px;
+    font-weight: bold;
+}
+
+.botaoConfirmar{
+    background-color: rgb(72, 217, 79);
+    box-shadow: 0 0 5px rgba(0, 123, 0, 0.5);;
+}
+
+.botaoCancelar{
+    background-color: rgb(227, 110, 110);
+    box-shadow: 0 0 5px rgba(211, 15, 15, 0.5);;
+}
+
+.popup-content {
+    padding: 20px;
+    text-align: center;
+}
