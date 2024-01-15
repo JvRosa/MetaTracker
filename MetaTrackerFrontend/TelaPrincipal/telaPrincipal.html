@@ -5,8 +5,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Meta Tracker</title>
     <link rel="shortcut icon" type="image/x-icon" href="Imagens/CheckIcon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.7/css/all.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Saira+Extra+Condensed:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="Estilos/EstiloTelaPrincipal.css">
 </head>
 <body>
-    <h1 style="text-align: center;">Tela principal</h1>
+    <header class="Cabecalho">   
+        <div class="titulo">
+            <h2 class="NomeMetaTracker">Meta Tracker <i class="fas fa-solid fa-square-check" style="color: rgb(32, 146, 0);"></i></h2>
+        </div>
+        <div class="Sair">
+            <a href="../index.html" class="BotaoSair">Sair</a>
+        </div>
+    </header>
+
+    <main class="Principal">
+
+        <div class="AdicionarCategoria">
+            <div class="adicionaCategoria">
+                <i class="fa-solid fa-plus"></i>
+            </div>
+        </div>
+    </main>
+
+    <div id="popup" class="popup">
+        <div class="popup-content">
+            <p id="popup-text"></p>
+            <button class="botoesConfirmarExclusao botaoConfirmar" id="popup-confirm">Confirmar</button>
+            <button class="botoesConfirmarExclusao botaoCancelar" id="popup-cancel">Cancelar</button>
+        </div>
+    </div>
+
+    <script src="Javascripts/JSTelaPrincipal.js"></script>
 </body>
 </html>
