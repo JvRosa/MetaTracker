@@ -81,18 +81,18 @@ function adicionarNovaCategoria() {
             ${novaCategoria.metas.map(meta => `
                 <li class="meta">
                     <div class="checkboxEMeta">
-                        <input type="checkbox" id="categoria${novaCategoria.id}Meta${meta.idMeta}" class="checkbox-escondido">
+                    <input type="checkbox" id="categoria${novaCategoria.id}Meta${meta.idMeta}" class="checkbox-escondido" onchange="marcarMetaConcluida(${novaCategoria.id}, ${meta.idMeta}, this)" ${meta.concluida ? 'checked' : ''}>
                         <label for="categoria${novaCategoria.id}Meta${meta.idMeta}" class="checkbox-personalizado"></label>
-                        <p class="tituloTarefa">${meta.texto}</p>
+                        <p class="tituloTarefa${novaCategoria.id}Meta${meta.idMeta}">${meta.texto}</p>
                     </div>
                     <div class="EditarEApagar">
-                        <i class="fa-solid fa-pen editarMeta" onclick="editarMeta(${novaCategoria.id}, ${meta.idMeta})"></i>
+                        <i class="fa-solid fa-pen editarMeta${novaCategoria.id}Meta${meta.idMeta}" onclick="editarMeta(${novaCategoria.id}, ${meta.idMeta})"></i>
                         <i class="fa-solid fa-trash excluirMeta" onclick="excluirMeta(${novaCategoria.id}, ${meta.idMeta})"></i>
                     </div>
                 </li>
             `).join('')}
-            <li class="adicionarMeta">
-                <i class="fa-solid fa-plus" onclick="adicionarNovaMeta(${novaCategoria.id})"></i>
+            <li class="adicionarMeta" onclick="adicionarNovaMeta(${novaCategoria.id})">
+                <i class="fa-solid fa-plus"></i>
             </li>
         </ul>
     `;
@@ -102,9 +102,46 @@ function adicionarNovaCategoria() {
     botaoAdicionarCategoria.parentNode.insertBefore(novaCategoriaDiv, botaoAdicionarCategoria);
 }
 
+function marcarMetaConcluida(idCategoria, idMeta, checkbox) {
+    const categoria = vetCategorias.find(c => c.id === idCategoria);
+
+    if (!categoria) {
+        console.error('Categoria não encontrada.');
+        return;
+    }
+
+    const meta = categoria.metas.find(m => m.idMeta === idMeta);
+
+    if (!meta) {
+        console.error('Meta não encontrada.');
+        return;
+    }
+
+    if (checkbox.checked) {
+        // Marcar a meta como concluída e atribuir a data atual
+        meta.concluida = true;
+        meta.dataConclusao = obterDataAtual();
+    } else {
+        // Desmarcar a meta e limpar a data de conclusão
+        meta.concluida = false;
+        meta.dataConclusao = "";
+    }
+
+    // Atualizar o HTML e o console
+    atualizarHTMLCategoria(idCategoria);
+    console.log(vetCategorias);
+}
+
+
+function obterDataAtual() {
+    const data = new Date();
+    const dia = String(data.getDate()).padStart(2, '0');
+    const mes = String(data.getMonth() + 1).padStart(2, '0'); // Adicionar 1 ao mês, pois janeiro é 0
+    const ano = data.getFullYear();
+    return `${dia}/${mes}/${ano}`;
+}
 
 function adicionarNovaMeta(idCategoria) {
-
     let categoria = vetCategorias.find(c => c.id === idCategoria);
 
     if (!categoria) {
@@ -115,7 +152,7 @@ function adicionarNovaMeta(idCategoria) {
     let novaMeta = {
         idMeta: categoria.metas.length,
         texto: "Nova meta",
-        concluida: false,
+        concluida: false,  // Valor inicial como false ao adicionar uma nova meta
         dataConclusao: ""
     };
 
@@ -127,6 +164,7 @@ function adicionarNovaMeta(idCategoria) {
 
     console.log(vetCategorias);
 }
+
 
 function atualizaQuantidadeDeMetas(idCategoria) {
 
@@ -153,16 +191,17 @@ function atualizarHTMLCategoria(idCategoria) {
 
     categoria.metas.forEach(meta => {
         let novaMetaDiv = document.createElement('li');
-        novaMetaDiv.className = 'meta';
+        novaMetaDiv.className = `meta ${meta.concluida ? 'meta-concluida' : ''}`;
 
         novaMetaDiv.innerHTML = `
             <div class="checkboxEMeta">
-                <input type="checkbox" id="categoria${categoria.id}Meta${meta.idMeta}" class="checkbox-escondido">
+                <input type="checkbox" id="categoria${categoria.id}Meta${meta.idMeta}" class="checkbox-escondido" onchange="marcarMetaConcluida(${categoria.id}, ${meta.idMeta}, this)" ${meta.concluida ? 'checked' : ''}>
                 <label for="categoria${categoria.id}Meta${meta.idMeta}" class="checkbox-personalizado"></label>
-                <p class="tituloTarefa">${meta.texto}</p>
+                <p class="tituloTarefa${categoria.id}Meta${meta.idMeta} ${meta.concluida ? 'meta-texto-concluido' : ''}">${meta.texto}</p>
+                ${meta.concluida ? `<p class="dataConclusao">${'Concluído em: ' + meta.dataConclusao}</p>` : ''}
             </div>
             <div class="EditarEApagar">
-                <i class="fa-solid fa-pen editarMeta" onclick="editarMeta(${categoria.id}, ${meta.idMeta})"></i>
+                <i class="fa-solid fa-pen editarMeta${categoria.id}Meta${meta.idMeta}" onclick="editarMeta(${categoria.id}, ${meta.idMeta})"></i>
                 <i class="fa-solid fa-trash excluirMeta" onclick="excluirMeta(${categoria.id}, ${meta.idMeta})"></i>
             </div>
         `;
@@ -175,6 +214,8 @@ function atualizarHTMLCategoria(idCategoria) {
     novaMetaDiv.innerHTML = `<i class="fa-solid fa-plus" onclick="adicionarNovaMeta(${idCategoria})"></i>`;
     areaMetas.appendChild(novaMetaDiv);
 }
+
+
 
 function editarCategoria(idCategoria) {
     const categoriaAtual = document.getElementById('categoria' + idCategoria);
@@ -202,8 +243,10 @@ function editarCategoria(idCategoria) {
             inputAlterarCorCategoria.value = vetCategorias[idCategoria].cor;
             mudarAparenciaDaCategoria();
 
-            inputAlterarCorCategoria.addEventListener("input", mudarAparenciaDaCategoria);
-
+            inputAlterarCorCategoria.addEventListener("input", () => {
+                
+                mudarAparenciaDaCategoria(idCategoria);
+            });
         } else {
 
             const inputEditarTitulo = categoriaAtual.querySelector(".inputEditarTitulo");
@@ -267,22 +310,37 @@ function excluirCategoria(idCategoria) {
 }
 
 function editarMeta(idCategoria, idMeta) {
-    let categoria = vetCategorias.find(c => c.id === idCategoria);
+    const categoria = vetCategorias.find(c => c.id === idCategoria);
 
-    let metaParaEditar = categoria.metas.find(meta => meta.idMeta === idMeta);
+    const meta = categoria.metas.find(m => m.idMeta === idMeta);
 
-    const novoTextoMeta = prompt('Digite o novo texto da meta:', metaParaEditar.texto);
+    const botaoEditarMeta = document.querySelector(`.editarMeta${idCategoria}Meta${idMeta}`);
+    const nomeMeta = document.querySelector(`.tituloTarefa${idCategoria}Meta${idMeta}`);
 
-    if (novoTextoMeta === null || novoTextoMeta.trim() === "") {
-        return;
+    if (botaoEditarMeta.classList.contains("fa-pen")) {
+        const inputNomeMeta = document.createElement("input");
+        inputNomeMeta.type = "text";
+        inputNomeMeta.value = meta.texto;
+        inputNomeMeta.className = "inputEditarMeta";
+        nomeMeta.replaceWith(inputNomeMeta);
+        inputNomeMeta.focus();
+
+        botaoEditarMeta.classList.remove("fa-pen");
+        botaoEditarMeta.classList.add("fa-check");
+    } else {
+        const inputEditarMeta = document.querySelector(".inputEditarMeta");
+        meta.texto = inputEditarMeta.value;
+
+        const tituloMeta = document.createElement("p");
+        tituloMeta.className = `tituloTarefa${idCategoria}Meta${idMeta}`;
+        tituloMeta.textContent = meta.texto;
+        inputEditarMeta.replaceWith(tituloMeta);
+
+        botaoEditarMeta.classList.remove("fa-check");
+        botaoEditarMeta.classList.add("fa-pen");
     }
-
-    metaParaEditar.texto = novoTextoMeta;
-
-    atualizarHTMLCategoria(idCategoria);
-
-    console.log(vetCategorias);
 }
+
 
 function excluirMeta(idCategoria, idMeta) {
     let categoria = vetCategorias.find(c => c.id === idCategoria);
@@ -290,7 +348,7 @@ function excluirMeta(idCategoria, idMeta) {
     if (categoria) {
         categoria.metas = categoria.metas.filter(meta => meta.idMeta !== idMeta);
 
-        // Atualiza o HTML da categoria
+
         atualizarHTMLCategoria(idCategoria);
 
         console.log(vetCategorias);

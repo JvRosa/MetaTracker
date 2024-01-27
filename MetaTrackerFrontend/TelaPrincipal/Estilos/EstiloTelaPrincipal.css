@@ -133,6 +133,17 @@ body {
     height: 50%;
 }
 
+.meta-concluida {
+    filter: blur(.3px); /* ou qualquer valor desejado */
+    color: green;
+    text-decoration: none;
+}
+
+.meta-texto-concluido {
+    filter: blur(0.6px);
+    text-decoration: line-through;
+}
+
 .TituloCategoria {
     letter-spacing: 1.5px;
 }
