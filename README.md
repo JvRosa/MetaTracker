@@ -2,6 +2,14 @@
 
 O MetaTracker tem como objetivo proporcionar aos usuários uma plataforma centralizada e amigável para o agendamento, monitoramento e realização de suas metas e objetivos. Queremos oferecer uma solução que inspire a organização, motive o progresso e ajude os usuários a atingirem seus objetivos de forma mais eficaz, transformando sonhos em realizações tangíveis.
 
+
+![Captura de Tela (4)](https://github.com/JvRosa/MetaTracker/assets/94145163/11c68355-7b93-48ea-b0d1-af838132c3cc)
+
+
+**Link do Projeto:** https://meta-tracker-psi.vercel.app/
+
+Link para o protótipo front end do projeto: https://metatrackerufg.netlify.app/
+
 ## Problema:
 Atualmente, muitas pessoas enfrentam desafios na gestão eficiente de suas metas e objetivos. A vida moderna, muitas vezes agitada, torna difícil lembrar, organizar e acompanhar as metas estabelecidas, resultando em um baixo índice de realização desses objetivos. A falta de uma ferramenta integrada e intuitiva contribui para a dispersão de esforços, desmotivação e, em última instância, para o não cumprimento de metas importantes.
 
